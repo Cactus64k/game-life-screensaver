@@ -1,0 +1,19 @@
+
+DEBIAN:
+################################################
+$ cd ~/
+$ git clone https://github.com/Cactus64k/game-life-screensaver.git
+$ cd game-life-screensaver
+$ fakeroot dpkg-buildpackage
+$ cd ..
+# dpkg -i game-life-screensaver_*.deb
+
+
+ANOTHER SYSTEMS:
+################################################
+$ cd ~/
+$ git clone https://github.com/Cactus64k/game-life-screensaver.git
+$ cd game-life-screensaver
+$ ./configure
+$ make
+$ make install

@@ -1,0 +1,39 @@
+# English translations for game-life-screensaver package.
+# Copyright (C) 2015 THE game-life-screensaver'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the game-life-screensaver package.
+# Automatically generated, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: game-life-screensaver 1.0.0\n"
+"Report-Msgid-Bugs-To: medved_cool@mail.ru\n"
+"POT-Creation-Date: 2015-05-03 00:33+0300\n"
+"PO-Revision-Date: 2015-05-03 00:33+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/main.c:23
+msgid "Update rate in sec"
+msgstr "Update rate in sec"
+
+#: ../src/main.c:24
+msgid "Cell size"
+msgstr "Cell size"
+
+#: ../src/main.c:25
+msgid "Print version"
+msgstr "Print version"
+
+#: ../src/main.c:42
+#, c-format
+msgid ""
+"ERROR: %s\n"
+"\n"
+msgstr ""
+"ERROR: %s\n"
+"\n"

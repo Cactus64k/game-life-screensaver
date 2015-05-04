@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Game of life
+Name[ru]=Игра жизнь
+Comment=Game of life simulation screensaver
+Comment[ru]=Скринсейвер с симуляцией игры Жизнь
+Exec=game-life-screensaver
+TryExec=game-life-screensaver
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Screensaver;
+Keywords=MATE;screensaver;GNOME;Life;game;
+OnlyShowIn=MATE;GNOME;

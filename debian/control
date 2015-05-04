@@ -1,0 +1,14 @@
+Source: game-life-screensaver
+Section: x11
+Priority: optional
+Maintainer: Cactus <medved_cool@mail.ru>
+Build-Depends: debhelper (>= 8.0.0), libgtk-3-dev (>= 3.4.2), libglib2.0-dev (>= 2.32.4), pkg-config (>= 0.26), libc-dev-bin (>= 2.13), gettext (>= 0.18.1.1)
+Standards-Version: 3.9.3
+Homepage: https://github.com/Cactus64k/game-life-screensaver
+
+Package: game-life-screensaver
+Architecture: amd64
+Depends: ${shlibs:Depends}
+Description: Game of life screensaver Developed using GTK+3.
+	Features:
+	- random generation

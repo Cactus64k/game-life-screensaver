@@ -1,0 +1,79 @@
+prefix			= @prefix@
+exec_prefix		= @exec_prefix@
+bindir			= @bindir@
+exec_prefix		= @exec_prefix@
+sysconfdir		= @sysconfdir@
+datarootdir		= @datarootdir@
+localedir		= @localedir@
+
+####################################################################################
+PACKAGE_NAME	= @PACKAGE_NAME@
+SOURCES			= $(shell find . -name '*.c' -printf './%P ')
+OBJECTS			= $(SOURCES:.c=.o)
+
+DEFINIONS		= 
+CC				= @CC@
+CFLAGS			= @CFLAGS@ $(DEFINIONS)
+LDFLAGS			=
+
+####################################################################################
+LIBS			= @GTK_LIBS@ @GLIB_LIBS@
+
+####################################################################################
+INCLUDE			= @GTK_CFLAGS@ @GLIB_CFLAGS@
+
+all: $(SOURCES) $(PACKAGE_NAME) TRANSLATE_TARGET
+
+TRANSLATE_TARGET:
+				msgfmt intl/ru.po		--output-file=intl/ru.mo
+				msgfmt intl/en_US.po	--output-file=intl/en_US.mo
+
+$(PACKAGE_NAME): $(OBJECTS) 
+				$(CC) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $@
+
+.c.o:
+				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+cppcheck_start:
+				cppcheck -j`nproc` -q --inconclusive --library=gtk --enable=all --std=c99 --report-progress --max-configs=1 `pkg-config gtk+-3.0 --cflags-only-I` ./src/
+
+clean:
+				find -name "*.o" -delete
+				find -name "*.mo" -delete
+				rm -f $(PACKAGE_NAME)
+
+# FIXME for new project
+mk_folders:
+				mkdir -p $(DESTDIR)$(prefix)/bin/
+				mkdir -p $(DESTDIR)$(localedir)/en_US/LC_MESSAGES/
+				mkdir -p $(DESTDIR)$(localedir)/ru/LC_MESSAGES/
+				mkdir -p $(DESTDIR)$(datarootdir)/applications/
+				mkdir -p $(DESTDIR)$(datarootdir)/applications/screensavers
+
+# FIXME for new project
+install:mk_folders
+				install $(PACKAGE_NAME)						$(DESTDIR)$(exec_prefix)/bin/$(PACKAGE_NAME)
+				cp intl/ru.mo								$(DESTDIR)$(localedir)/ru/LC_MESSAGES/$(PACKAGE_NAME).mo
+				cp intl/en_US.mo							$(DESTDIR)$(localedir)/en_US/LC_MESSAGES/$(PACKAGE_NAME).mo
+				cp res/$(PACKAGE_NAME).desktop				$(DESTDIR)$(datarootdir)/applications/screensavers/$(PACKAGE_NAME).desktop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
